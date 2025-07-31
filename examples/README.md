@@ -1,4 +1,4 @@
-# Topics
+# Scenarios
 
 This directory contains a collection of k6 test scripts that demonstrate various features of k6.
 

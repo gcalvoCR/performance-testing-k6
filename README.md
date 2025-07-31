@@ -6,7 +6,7 @@ This repository is a starter kit for performance testing with [k6](https://k6.io
 ## Table of Contents
 
 *   [Getting Started](./getting-started.md)
-*   [Scenarios](./00-scenarios)
+*   [Scenarios](./scenarios)
 *   [Examples](./examples)
 *   [Contributing](./CONTRIBUTING.md)
 
