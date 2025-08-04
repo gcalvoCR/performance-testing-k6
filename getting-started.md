@@ -83,6 +83,6 @@ Congratulations! You've successfully run your first k6 test.
 Now that you've run your first test, you can start exploring the other features of k6. Here are some resources to help you get started:
 
 *   [k6 documentation](https://k6.io/docs/)
-*   [k6 examples](https://k6.io/docs/examples/)
+*   [k6 examples](https://k6.io/docs/topics-and-examples/)
 *   [k6 community](https://community.k6.io/)
 

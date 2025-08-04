@@ -1,0 +1,146 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "k6 Load Test - InfluxDB v1",
+    "timezone": "browser",
+    "refresh": "10s",
+    "schemaVersion": 36,
+    "version": 1,
+    "panels": [
+      {
+        "type": "stat",
+        "title": "Total HTTP Requests",
+        "datasource": "your_datasource_name",
+        "targets": [
+          {
+            "measurement": "http_reqs",
+            "groupBy": [],
+            "orderByTime": "ASC",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [[{ "type": "field", "params": ["value"] }, { "type": "sum" }]],
+            "tags": []
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": { "x": 0, "y": 0, "w": 6, "h": 4 }
+      },
+      {
+        "type": "stat",
+        "title": "Success Rate",
+        "datasource": "your_datasource_name",
+        "targets": [
+          {
+            "measurement": "checks",
+            "refId": "A",
+            "select": [[{ "type": "field", "params": ["value"] }, { "type": "mean" }]],
+            "tags": []
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "decimals": 2
+          },
+          "overrides": []
+        },
+        "gridPos": { "x": 6, "y": 0, "w": 6, "h": 4 }
+      },
+      {
+        "type": "stat",
+        "title": "Virtual Users (VU)",
+        "datasource": "your_datasource_name",
+        "targets": [
+          {
+            "measurement": "vus",
+            "refId": "A",
+            "select": [[{ "type": "field", "params": ["value"] }, { "type": "last" }]],
+            "tags": []
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short"
+          },
+          "overrides": []
+        },
+        "gridPos": { "x": 12, "y": 0, "w": 6, "h": 4 }
+      },
+      {
+        "type": "graph",
+        "title": "Request Duration (ms)",
+        "datasource": "your_datasource_name",
+        "targets": [
+          {
+            "measurement": "http_req_duration",
+            "refId": "A",
+            "select": [[{ "type": "field", "params": ["value"] }, { "type": "mean" }]],
+            "groupBy": [
+              { "type": "time", "params": ["10s"] }
+            ],
+            "tags": []
+          }
+        ],
+        "yaxes": [
+          { "format": "ms", "label": "Duration", "logBase": 1, "min": 0 },
+          { "format": "short", "label": null }
+        ],
+        "gridPos": { "x": 0, "y": 4, "w": 12, "h": 8 }
+      },
+      {
+        "type": "graph",
+        "title": "Requests Per Second (RPS)",
+        "datasource": "your_datasource_name",
+        "targets": [
+          {
+            "measurement": "http_reqs",
+            "refId": "A",
+            "select": [[{ "type": "field", "params": ["value"] }, { "type": "count" }]],
+            "groupBy": [
+              { "type": "time", "params": ["1s"] }
+            ],
+            "tags": []
+          }
+        ],
+        "yaxes": [
+          { "format": "reqps", "label": "RPS", "logBase": 1 },
+          { "format": "short" }
+        ],
+        "gridPos": { "x": 12, "y": 4, "w": 12, "h": 8 }
+      },
+      {
+        "type": "graph",
+        "title": "Failed Requests",
+        "datasource": "your_datasource_name",
+        "targets": [
+          {
+            "measurement": "http_req_failed",
+            "refId": "A",
+            "select": [[{ "type": "field", "params": ["value"] }, { "type": "mean" }]],
+            "groupBy": [
+              { "type": "time", "params": ["10s"] }
+            ],
+            "tags": []
+          }
+        ],
+        "yaxes": [
+          { "format": "percent", "label": "Fail %", "logBase": 1 },
+          { "format": "short" }
+        ],
+        "gridPos": { "x": 0, "y": 12, "w": 24, "h": 8 }
+      }
+    ],
+    "time": {
+      "from": "now-10m",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": ["5s", "10s", "30s", "1m"]
+    }
+  }
+}

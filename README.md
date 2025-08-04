@@ -7,7 +7,7 @@ This repository is a starter kit for performance testing with [k6](https://k6.io
 
 *   [Getting Started](./getting-started.md)
 *   [Scenarios](./scenarios)
-*   [Examples](./examples)
+*   [Topics & Examples](./topics-and-examples)
 *   [Contributing](./CONTRIBUTING.md)
 
 ## Getting Started
@@ -21,16 +21,16 @@ The [Scenarios](./00-scenarios) directory contains a collection of common perfor
 *   [Large-Scale Tests](./00-scenarios/01-large-scale-tests.md)
 *   [Performance Testing Types](./00-scenarios/02-performance-testing-types.md)
 
-## Examples
+## Topics & Examples
 
-The [Examples](./examples) directory contains a collection of k6 test scripts that demonstrate various features of k6, such as:
+The [Topics & Examples](./topics-and-examples) directory contains a collection of k6 test scripts that demonstrate various features of k6, such as:
 
-*   [Introduction](./examples/01-introduction)
-*   [Output](./examples/02-output)
-*   [Custom Metrics](./examples/03-custom-metrics)
-*   [Acceptance Criteria](./examples/04-acceptance-criteria)
-*   [Grafana Dashboards](./examples/05-grafana-dashboards)
-*   [Cloud](./examples/06-cloud)
+*   [Introduction](./topics-and-examples/01-introduction)
+*   [Output](./topics-and-examples/02-output)
+*   [Custom Metrics](./topics-and-examples/03-custom-metrics)
+*   [Acceptance Criteria](./topics-and-examples/04-acceptance-criteria)
+*   [Grafana Dashboards](./topics-and-examples/05-grafana-dashboards)
+*   [Cloud](./topics-and-examples/06-cloud)
 
 ## Contributing
 
