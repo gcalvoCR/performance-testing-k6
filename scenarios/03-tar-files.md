@@ -34,7 +34,6 @@ export default function (data) {
   console.log(`Token is: ${data.token}`);
 }
 ```
-
 ```javascript
 //  utils.js
 export function getToken() {
@@ -51,42 +50,27 @@ export const API_BASE = 'https://example.com/api';
 Run this in your terminal:
 
 ```bash
-tar -czf my-k6-test.tar.gz test.js utils.js config.js data.json
+k6 archive test.js -O test.tar
 ```
+https://grafana.com/docs/k6/latest/reference/archive/
 
-This will create a gzipped archive named my-k6-test.tar.gz.
+
+This will create a tar archive named test.tar containing test.js and all its dependencies (utils.js, config.js, data.json).
 
 ## ☁️ 3. Run with k6 cloud
 You can now upload and run the archive:
 
 ```bash
-k6 cloud my-k6-test.tar.gz
+k6 cloud test.tar
 ```
-If the main script isn’t named script.js, specify it manually:
+
+or locally:
 
 ```bash
-k6 cloud --script test.js my-k6-test.tar.gz
+k6 run test.tar
 ```
 
 ## ✅ Notes
 - Use relative imports (./utils.js) in your scripts.
 - setup() and teardown() must be in the main script.
 - Only .js, .json, and .pem files are allowed in the archive.
-
-## ⚙️ Optional: Automate with a Makefile
-```makefile
-FILES = test.js utils.js config.js data.json
-ARCHIVE = my-k6-test.tar.gz
-
-package:
-	tar -czf $(ARCHIVE) $(FILES)
-
-run-cloud: package
-	k6 cloud --script test.js $(ARCHIVE)
-```
-
-Then run:
-
-```bash
-make run-cloud
-```
